@@ -1,7 +1,28 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { OnboardingFlow } from './pages/OnboardingFlow';
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
 // import { AIChat } from './components/AIChat';
 import ArivStyleChat from './components/ArivStyleChat';
+
+function AppContent() {
+  const location = useLocation();
+  const showChat = location.pathname !== '/login' && location.pathname !== '/' && location.pathname !== '/register';
+  
+  return (
+    <>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/onboarding" element={<OnboardingFlow />} />
+        <Route path="/" element={<LoginPage />} />
+      </Routes>
+
+      {/* AI Chat Component - Only show after login */}
+      {showChat && <ArivStyleChat />}
+    </>
+  );
+}
 
 function App() {
   // Using Ariv Style from SIH ERP
@@ -10,15 +31,7 @@ function App() {
   return (
     <Router>
       <div className="relative min-h-screen">
-        <Routes>
-          <Route path="/" element={<OnboardingFlow />} />
-        </Routes>
-
-        {/* AI Chat Component - Ariv Style (SIH ERP) */}
-        <ArivStyleChat />
-        
-        {/* AI Chat Component - ApnaKeth Style (Voice + Orb) - Uncomment to use */}
-        {/* <AIChat /> */}
+        <AppContent />
       </div>
     </Router>
   );
