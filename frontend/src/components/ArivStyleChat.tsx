@@ -291,9 +291,10 @@ const ArivStyleChat: React.FC = () => {
       {/* Gradual Blur Background - Animated from bottom */}
       {isOpen && (
         <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
-          {/* Green tint overlay */}
+          {/* Green tint overlay with gradient opacity */}
           <div 
-            className="absolute inset-0 bg-gradient-to-t from-green-500/8 via-green-500/3 to-transparent animate-in fade-in duration-500"
+            className="absolute inset-0 bg-gradient-to-t from-green-400/25 via-green-400/12 to-transparent animate-in fade-in duration-500"
+            style={{ height: '12rem' }}
           />
           <div className="animate-in slide-in-from-bottom-4 fade-in duration-500">
             <GradualBlur

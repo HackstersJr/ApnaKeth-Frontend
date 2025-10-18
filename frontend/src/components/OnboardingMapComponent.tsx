@@ -280,9 +280,10 @@ export function OnboardingMapComponent({
     }
     
     // Force map to refresh and maintain visibility
+    map.invalidateSize();
     setTimeout(() => {
       map.invalidateSize();
-    }, 0);
+    }, 100);
   }, [isDrawingLand, isDrawingPartition]);
 
   // Update drawing visualization (only drawing points and temporary polygon)
@@ -358,6 +359,11 @@ export function OnboardingMapComponent({
         markersRef.current.push(tempPolygon as any);
       }
     }
+    
+    // Ensure map remains visible after drawing updates
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 0);
   }, [drawingPoints, step, isDrawingLand, isDrawingPartition]);
 
   // Update land and partition visualization
@@ -454,6 +460,7 @@ export function OnboardingMapComponent({
     });
     
     // Ensure map displays properly after updating layers
+    map.invalidateSize();
     setTimeout(() => {
       map.invalidateSize();
     }, 0);
@@ -619,8 +626,8 @@ export function OnboardingMapComponent({
       </div>
 
       <div ref={mapRef} 
-           className={`w-full h-full rounded-xl ${(isDrawingLand || isDrawingPartition) ? 'drawing-mode' : ''}`} 
-           style={{ borderRadius: '12px' }} />
+           className="w-full h-full rounded-xl relative" 
+           style={{ height: '100%', width: '100%', borderRadius: '12px' }} />
     </div>
   );
 }
