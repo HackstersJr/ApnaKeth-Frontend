@@ -1,0 +1,83 @@
+{
+  "current": {
+    "temperature": 28,
+    "humidity": 65,
+    "rainfall": 0,
+    "windSpeed": 12,
+    "condition": "partly_cloudy",
+    "uv_index": 7
+  },
+  "forecast": [
+    {
+      "date": "2025-10-19",
+      "day": "Tomorrow",
+      "temp": { "min": 22, "max": 32 },
+      "rainfall": 0,
+      "humidity": 60,
+      "condition": "sunny",
+      "icon": "☀️"
+    },
+    {
+      "date": "2025-10-20",
+      "day": "Sunday",
+      "temp": { "min": 23, "max": 33 },
+      "rainfall": 5,
+      "humidity": 65,
+      "condition": "partly_cloudy",
+      "icon": "⛅"
+    },
+    {
+      "date": "2025-10-21",
+      "day": "Monday",
+      "temp": { "min": 21, "max": 29 },
+      "rainfall": 15,
+      "humidity": 75,
+      "condition": "rainy",
+      "icon": "🌧️"
+    },
+    {
+      "date": "2025-10-22",
+      "day": "Tuesday",
+      "temp": { "min": 20, "max": 28 },
+      "rainfall": 20,
+      "humidity": 80,
+      "condition": "heavy_rain",
+      "icon": "⛈️"
+    },
+    {
+      "date": "2025-10-23",
+      "day": "Wednesday",
+      "temp": { "min": 22, "max": 30 },
+      "rainfall": 2,
+      "humidity": 70,
+      "condition": "cloudy",
+      "icon": "☁️"
+    },
+    {
+      "date": "2025-10-24",
+      "day": "Thursday",
+      "temp": { "min": 23, "max": 31 },
+      "rainfall": 0,
+      "humidity": 62,
+      "condition": "sunny",
+      "icon": "☀️"
+    },
+    {
+      "date": "2025-10-25",
+      "day": "Friday",
+      "temp": { "min": 24, "max": 33 },
+      "rainfall": 0,
+      "humidity": 58,
+      "condition": "sunny",
+      "icon": "☀️"
+    }
+  ],
+  "alerts": [
+    {
+      "type": "heatwave",
+      "severity": "moderate",
+      "message": "High temperatures expected for next 3 days. Increase irrigation frequency.",
+      "icon": "🌡️"
+    }
+  ]
+}

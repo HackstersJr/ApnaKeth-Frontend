@@ -1,0 +1,93 @@
+{
+  "land_1": {
+    "status": "healthy",
+    "interventions": [],
+    "maintenance": [
+      "Continue regular irrigation schedule",
+      "Monitor for early signs of pest activity",
+      "Maintain weed control measures"
+    ],
+    "forecast": "Excellent yield expected if current conditions maintained"
+  },
+  "land_2": {
+    "status": "needs_attention",
+    "interventions": [
+      {
+        "priority": "high",
+        "action": "Increase irrigation frequency",
+        "schedule": "Start within 24 hours",
+        "expectedImpact": "Reduce water stress by 60% in 3 days",
+        "cost": "₹3,000 - ₹5,000"
+      },
+      {
+        "priority": "high",
+        "action": "Apply nitrogen fertilizer (Urea 25kg/hectare)",
+        "schedule": "Within 48 hours",
+        "expectedImpact": "Restore nitrogen levels in 1 week",
+        "cost": "₹2,500 - ₹3,500"
+      },
+      {
+        "priority": "medium",
+        "action": "Add phosphorus fertilizer (DAP 20kg/hectare)",
+        "schedule": "Within 1 week",
+        "expectedImpact": "Improve root development",
+        "cost": "₹2,000 - ₹3,000"
+      }
+    ],
+    "maintenance": [
+      "Switch to drip irrigation if possible",
+      "Monitor soil moisture daily",
+      "Check for pest activity due to stress"
+    ],
+    "forecast": "Yield can recover to 80% if actions taken immediately"
+  },
+  "land_3": {
+    "status": "excellent",
+    "interventions": [],
+    "maintenance": [
+      "Continue current management practices",
+      "Prepare for harvest in 45-60 days",
+      "Monitor weather for optimal harvest timing"
+    ],
+    "forecast": "Above-average yield expected (120% of normal)"
+  },
+  "land_4": {
+    "status": "critical",
+    "interventions": [
+      {
+        "priority": "critical",
+        "action": "Install drip irrigation system immediately",
+        "schedule": "Emergency - within 12 hours",
+        "expectedImpact": "Prevent complete crop failure",
+        "cost": "₹15,000 - ₹25,000"
+      },
+      {
+        "priority": "critical",
+        "action": "Emergency fertilization (NPK complex)",
+        "schedule": "Immediate",
+        "expectedImpact": "Provide essential nutrients",
+        "cost": "₹8,000 - ₹12,000"
+      },
+      {
+        "priority": "high",
+        "action": "Apply gypsum to reduce soil alkalinity",
+        "schedule": "Within 24 hours",
+        "expectedImpact": "Lower pH to acceptable range",
+        "cost": "₹5,000 - ₹8,000"
+      },
+      {
+        "priority": "medium",
+        "action": "Add organic compost (2 tons/hectare)",
+        "schedule": "Within 1 week",
+        "expectedImpact": "Improve soil structure and water retention",
+        "cost": "₹10,000 - ₹15,000"
+      }
+    ],
+    "maintenance": [
+      "Daily soil moisture monitoring",
+      "Consider crop insurance claim if situation doesn't improve",
+      "Plan for soil rehabilitation and crop rotation next season"
+    ],
+    "forecast": "High risk of significant yield loss. Immediate action required to save 40-50% of crop."
+  }
+}

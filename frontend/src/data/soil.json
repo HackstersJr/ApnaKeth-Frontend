@@ -1,0 +1,111 @@
+{
+  "land_1": {
+    "moisture": {
+      "level": 55,
+      "status": "optimal",
+      "unit": "percentage"
+    },
+    "ph": {
+      "value": 6.8,
+      "status": "optimal",
+      "range": "6.0-7.5"
+    },
+    "nutrients": {
+      "nitrogen": { "level": "high", "value": 85, "recommendation": "Maintain current levels" },
+      "phosphorus": { "level": "medium", "value": 60, "recommendation": "Consider adding 10kg/hectare DAP" },
+      "potassium": { "level": "high", "value": 80, "recommendation": "Adequate for wheat growth" }
+    },
+    "organicMatter": {
+      "percentage": 3.8,
+      "status": "excellent"
+    },
+    "texture": "Loamy",
+    "recommendations": [
+      "Soil health is excellent",
+      "Maintain current irrigation schedule",
+      "No immediate fertilizer needed"
+    ]
+  },
+  "land_2": {
+    "moisture": {
+      "level": 38,
+      "status": "low",
+      "unit": "percentage"
+    },
+    "ph": {
+      "value": 7.2,
+      "status": "slightly_alkaline",
+      "range": "6.0-7.5"
+    },
+    "nutrients": {
+      "nitrogen": { "level": "low", "value": 35, "recommendation": "Apply 25kg/hectare urea urgently" },
+      "phosphorus": { "level": "low", "value": 30, "recommendation": "Add 20kg/hectare DAP" },
+      "potassium": { "level": "medium", "value": 55, "recommendation": "Monitor levels" }
+    },
+    "organicMatter": {
+      "percentage": 2.1,
+      "status": "low"
+    },
+    "texture": "Sandy Loam",
+    "recommendations": [
+      "Increase irrigation immediately",
+      "Apply nitrogen fertilizer within 2 days",
+      "Consider adding organic matter"
+    ]
+  },
+  "land_3": {
+    "moisture": {
+      "level": 62,
+      "status": "optimal",
+      "unit": "percentage"
+    },
+    "ph": {
+      "value": 6.5,
+      "status": "optimal",
+      "range": "6.0-7.5"
+    },
+    "nutrients": {
+      "nitrogen": { "level": "high", "value": 90, "recommendation": "Excellent for sugarcane" },
+      "phosphorus": { "level": "high", "value": 75, "recommendation": "Maintain levels" },
+      "potassium": { "level": "high", "value": 85, "recommendation": "Perfect balance" }
+    },
+    "organicMatter": {
+      "percentage": 4.2,
+      "status": "excellent"
+    },
+    "texture": "Clay Loam",
+    "recommendations": [
+      "Soil conditions are ideal",
+      "Continue current management practices",
+      "Excellent crop potential"
+    ]
+  },
+  "land_4": {
+    "moisture": {
+      "level": 25,
+      "status": "critical",
+      "unit": "percentage"
+    },
+    "ph": {
+      "value": 8.1,
+      "status": "alkaline",
+      "range": "6.0-7.5"
+    },
+    "nutrients": {
+      "nitrogen": { "level": "very_low", "value": 20, "recommendation": "Emergency fertilization needed" },
+      "phosphorus": { "level": "low", "value": 25, "recommendation": "Add 30kg/hectare DAP immediately" },
+      "potassium": { "level": "low", "value": 35, "recommendation": "Apply potash fertilizer" }
+    },
+    "organicMatter": {
+      "percentage": 1.5,
+      "status": "very_low"
+    },
+    "texture": "Sandy",
+    "recommendations": [
+      "URGENT: Implement drip irrigation system",
+      "Apply gypsum to reduce alkalinity",
+      "Heavy fertilization required",
+      "Consider crop rotation next season"
+    ]
+  }
+}

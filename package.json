@@ -1,0 +1,44 @@
+{
+  "name": "apnaketh",
+  "version": "1.0.0",
+  "description": "ApnaKeth - Smart AgriScout with AI-powered crop stress detection",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "agriculture",
+    "ai",
+    "crop-monitoring",
+    "ndvi",
+    "geospatial",
+    "satellite"
+  ],
+  "author": "Team Hacksters",
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/community": "^0.3.55",
+    "@langchain/core": "^0.3.75",
+    "@langchain/langgraph": "^0.4.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.10.0",
+    "helmet": "^7.0.0",
+    "uuid": "^9.0.0",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.5.9",
+    "@types/uuid": "^9.0.0",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

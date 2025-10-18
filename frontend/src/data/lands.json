@@ -1,0 +1,76 @@
+{
+  "lands": [
+    {
+      "id": "land_1",
+      "name": "Land 1",
+      "area": "2.5 hectares",
+      "location": {
+        "lat": 28.6139,
+        "lng": 77.2090
+      },
+      "crop": "Wheat",
+      "plantedDate": "2024-11-15",
+      "ndvi": {
+        "current": 0.75,
+        "status": "healthy",
+        "trend": "improving"
+      },
+      "stressLevel": "low",
+      "color": "#22c55e"
+    },
+    {
+      "id": "land_2",
+      "name": "Land 2",
+      "area": "1.8 hectares",
+      "location": {
+        "lat": 28.6145,
+        "lng": 77.2095
+      },
+      "crop": "Rice",
+      "plantedDate": "2024-10-20",
+      "ndvi": {
+        "current": 0.58,
+        "status": "moderate_stress",
+        "trend": "declining"
+      },
+      "stressLevel": "moderate",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "land_3",
+      "name": "Land 3",
+      "area": "3.2 hectares",
+      "location": {
+        "lat": 28.6150,
+        "lng": 77.2085
+      },
+      "crop": "Sugarcane",
+      "plantedDate": "2024-09-10",
+      "ndvi": {
+        "current": 0.82,
+        "status": "excellent",
+        "trend": "stable"
+      },
+      "stressLevel": "none",
+      "color": "#10b981"
+    },
+    {
+      "id": "land_4",
+      "name": "Land 4",
+      "area": "2.0 hectares",
+      "location": {
+        "lat": 28.6135,
+        "lng": 77.2100
+      },
+      "crop": "Cotton",
+      "plantedDate": "2024-08-05",
+      "ndvi": {
+        "current": 0.42,
+        "status": "severe_stress",
+        "trend": "critical"
+      },
+      "stressLevel": "high",
+      "color": "#ef4444"
+    }
+  ]
+}
