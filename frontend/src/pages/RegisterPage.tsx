@@ -103,7 +103,7 @@ export function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-green-50 via-emerald-50 to-brand-earth-50 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-3 sm:p-4 py-6 sm:py-4 bg-gradient-to-br from-green-50 via-emerald-50 to-brand-earth-50 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/30 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -114,29 +114,29 @@ export function RegisterPage() {
       {/* Registration Container */}
       <div className="relative w-full max-w-md animate-scale-in">
         {/* Logo & Title */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center mb-4">
-            <div className="p-4 bg-gradient-to-br from-green-400 to-green-600 rounded-3xl shadow-glow-green">
-              <Sprout className="w-12 h-12 text-white" />
+        <div className="text-center mb-4 sm:mb-8">
+          <div className="inline-flex items-center justify-center mb-3 sm:mb-4">
+            <div className="p-3 sm:p-4 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl sm:rounded-3xl shadow-glow-green">
+              <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent mb-1 sm:mb-2">
             Join ApnaKeth
           </h1>
-          <p className="text-gray-600">Create your farmer account today</p>
+          <p className="text-sm sm:text-base text-gray-600">Create your farmer account today</p>
         </div>
 
         {/* Registration Card */}
-        <div className="glassmorphism rounded-3xl p-8 shadow-strong border-2 border-white/40">
-          <form onSubmit={handleRegister} className="space-y-4">
+        <div className="glassmorphism rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-strong border-2 border-white/40">
+          <form onSubmit={handleRegister} className="space-y-3 sm:space-y-4">
             {/* Full Name Input */}
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                 Full Name
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <User className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                  <User className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type="text"
@@ -145,20 +145,20 @@ export function RegisterPage() {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Enter your full name"
-                  className="w-full pl-12 pr-4 py-3 bg-white/70 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
+                  className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/70 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
                 />
               </div>
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              {errors.name && <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.name}</p>}
             </div>
 
             {/* Email Input */}
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Mail className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type="email"
@@ -167,20 +167,20 @@ export function RegisterPage() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="farmer@example.com"
-                  className="w-full pl-12 pr-4 py-3 bg-white/70 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
+                  className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/70 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
                 />
               </div>
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.email}</p>}
             </div>
 
             {/* Phone Number Input */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                 Phone Number
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Phone className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type="tel"
@@ -190,20 +190,20 @@ export function RegisterPage() {
                   onChange={handleInputChange}
                   placeholder="10-digit phone number"
                   maxLength={10}
-                  className="w-full pl-12 pr-4 py-3 bg-white/70 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
+                  className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/70 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
                 />
               </div>
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+              {errors.phone && <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.phone}</p>}
             </div>
 
             {/* Password Input */}
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                 Password
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Lock className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -212,31 +212,31 @@ export function RegisterPage() {
                   value={formData.password}
                   onChange={handleInputChange}
                   placeholder="Create a password"
-                  className="w-full pl-12 pr-12 py-3 bg-white/70 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
+                  className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-2.5 sm:py-3 text-sm sm:text-base bg-white/70 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors min-w-[44px] min-h-[44px]"
                 >
                   {showPassword ? (
-                    <EyeOff className="w-5 h-5" />
+                    <EyeOff className="w-4 h-4 sm:w-5 sm:h-5" />
                   ) : (
-                    <Eye className="w-5 h-5" />
+                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
                   )}
                 </button>
               </div>
-              {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+              {errors.password && <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.password}</p>}
             </div>
 
             {/* Confirm Password Input */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="confirmPassword" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                 Confirm Password
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Lock className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type={showConfirmPassword ? 'text' : 'password'}
@@ -245,33 +245,33 @@ export function RegisterPage() {
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
                   placeholder="Confirm your password"
-                  className="w-full pl-12 pr-12 py-3 bg-white/70 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
+                  className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-2.5 sm:py-3 text-sm sm:text-base bg-white/70 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors min-w-[44px] min-h-[44px]"
                 >
                   {showConfirmPassword ? (
-                    <EyeOff className="w-5 h-5" />
+                    <EyeOff className="w-4 h-4 sm:w-5 sm:h-5" />
                   ) : (
-                    <Eye className="w-5 h-5" />
+                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
                   )}
                 </button>
               </div>
-              {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
+              {errors.confirmPassword && <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.confirmPassword}</p>}
             </div>
 
             {/* Agree to Terms */}
-            <label className="flex items-center gap-3 cursor-pointer group mt-6">
+            <label className="flex items-start gap-2 sm:gap-3 cursor-pointer group mt-4 sm:mt-6">
               <input
                 type="checkbox"
                 name="agreeToTerms"
                 checked={formData.agreeToTerms}
                 onChange={handleInputChange}
-                className="w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer"
+                className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer flex-shrink-0"
               />
-              <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
+              <span className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
                 I agree to the{' '}
                 <button type="button" className="text-green-600 hover:text-green-700 font-medium">
                   Terms of Service
@@ -282,35 +282,35 @@ export function RegisterPage() {
                 </button>
               </span>
             </label>
-            {errors.agreeToTerms && <p className="text-red-500 text-sm">{errors.agreeToTerms}</p>}
+            {errors.agreeToTerms && <p className="text-red-500 text-xs sm:text-sm">{errors.agreeToTerms}</p>}
 
             {/* Register Button */}
             <Button
               type="submit"
               variant="primary"
               disabled={isLoading}
-              className="w-full py-3.5 text-lg font-bold shadow-medium hover:shadow-strong group mt-6"
+              className="w-full py-3 sm:py-3.5 text-base sm:text-lg font-bold shadow-medium hover:shadow-strong group mt-4 sm:mt-6 min-h-[48px]"
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-spin" />
                   Creating Account...
                 </>
               ) : (
                 <>
                   Create Account
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
             </Button>
 
             {/* Divider */}
-            <div className="relative my-6">
+            <div className="relative my-4 sm:my-6">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300"></div>
               </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white/70 text-gray-500 rounded-full">
+              <div className="relative flex justify-center text-xs sm:text-sm">
+                <span className="px-3 sm:px-4 bg-white/70 text-gray-500 rounded-full">
                   Already have an account?
                 </span>
               </div>
@@ -320,7 +320,7 @@ export function RegisterPage() {
             <button
               type="button"
               onClick={() => navigate('/login')}
-              className="w-full py-3 text-center font-semibold text-gray-700 hover:text-green-600 transition-colors flex items-center justify-center gap-2"
+              className="w-full py-3 text-center font-semibold text-sm sm:text-base text-gray-700 hover:text-green-600 transition-colors flex items-center justify-center gap-2 min-h-[44px]"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Sign In
@@ -329,7 +329,7 @@ export function RegisterPage() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-6 text-xs text-gray-500">
+        <div className="text-center mt-4 sm:mt-6 text-xs text-gray-500">
           <p>ApnaKeth - Smart Agriculture at Your Fingertips 🌾</p>
         </div>
       </div>

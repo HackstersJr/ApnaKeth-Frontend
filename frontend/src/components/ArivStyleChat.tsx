@@ -271,11 +271,7 @@ const ArivStyleChat: React.FC = () => {
   if (!isOpen) {
     return (
       <div 
-        className="fixed bottom-8 z-50 transition-all duration-700 ease-out"
-        style={{ 
-          left: '50%',
-          transform: 'translateX(-50%)'
-        }}
+        className="fixed bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-out"
       >
         <MiniOrb 
           onClick={() => setIsOpen(true)}
@@ -315,8 +311,8 @@ const ArivStyleChat: React.FC = () => {
 
       {/* Minimal Horizontal Chat Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 pb-6">
-          <div className="flex items-center gap-4">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 pb-4 sm:pb-6">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Animated Orb - Slides smoothly to left when active */}
             <div 
               className="flex-shrink-0 transition-all duration-700 ease-out"
@@ -336,42 +332,42 @@ const ArivStyleChat: React.FC = () => {
                   : 'opacity-0 -translate-x-8 pointer-events-none'
               }`}
             >
-              <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 p-4">
-                <div className="flex items-center gap-3">
+              <div className="bg-white/95 backdrop-blur-xl rounded-xl sm:rounded-2xl shadow-2xl border border-gray-200/50 p-2.5 sm:p-4">
+                <div className="flex items-center gap-2 sm:gap-3">
                   {/* AI Icon - Pop in animation */}
                   <div 
-                    className={`w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500 ${
+                    className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500 ${
                       isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
                     }`}
                     style={{ transitionDelay: isOpen ? '200ms' : '0ms' }}
                   >
-                    <Bot className="w-5 h-5 text-white" />
+                    <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
 
                   {/* Last AI Response - Fade and slide up */}
                   <div 
-                    className={`flex-1 max-h-16 overflow-y-auto transition-all duration-500 ${
+                    className={`flex-1 max-h-12 sm:max-h-16 overflow-y-auto transition-all duration-500 ${
                       isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                     }`}
                     style={{ transitionDelay: isOpen ? '300ms' : '0ms' }}
                   >
                     {messages.length > 0 && messages[messages.length - 1].type === 'ai' && !isPending ? (
-                      <p className="text-sm text-gray-700 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                         {messages[messages.length - 1].content}
                       </p>
                     ) : isPending ? (
                       <div className="flex items-center gap-2">
-                        <Loader className="w-4 h-4 text-blue-600 animate-spin" />
-                        <span className="text-sm text-gray-500">Thinking...</span>
+                        <Loader className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 animate-spin" />
+                        <span className="text-xs sm:text-sm text-gray-500">Thinking...</span>
                       </div>
                     ) : (
-                      <p className="text-sm text-gray-500">Ask me anything about your farm...</p>
+                      <p className="text-xs sm:text-sm text-gray-500">Ask me anything about your farm...</p>
                     )}
                   </div>
 
                   {/* Input Field - Fade and slide up */}
                   <div 
-                    className={`flex items-center gap-2 flex-shrink-0 transition-all duration-500 ${
+                    className={`flex items-center gap-1.5 sm:gap-2 flex-shrink-0 transition-all duration-500 ${
                       isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                     }`}
                     style={{ transitionDelay: isOpen ? '400ms' : '0ms' }}
@@ -382,19 +378,19 @@ const ArivStyleChat: React.FC = () => {
                       onKeyPress={handleKeyPress}
                       placeholder="Type your question..."
                       disabled={isPending}
-                      className="w-64"
+                      className="w-40 sm:w-64 text-sm"
                     />
                     <Button
                       onClick={handleSendMessage}
                       disabled={!inputMessage.trim() || isPending}
                       variant="primary"
                       size="md"
-                      className="h-10"
+                      className="h-9 sm:h-10 min-w-[40px] sm:min-w-[44px] px-2.5 sm:px-3"
                     >
                       {isPending ? (
-                        <Loader className="w-4 h-4 animate-spin" />
+                        <Loader className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />
                       ) : (
-                        <Send className="w-4 h-4" />
+                        <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       )}
                     </Button>
                   </div>
@@ -407,7 +403,7 @@ const ArivStyleChat: React.FC = () => {
                     style={{ transitionDelay: isOpen ? '500ms' : '0ms' }}
                   >
                     <Sparkles className="w-3 h-3" />
-                    <span className="text-xs">AI</span>
+                    <span className="text-[10px] sm:text-xs">AI</span>
                   </div>
                 </div>
               </div>

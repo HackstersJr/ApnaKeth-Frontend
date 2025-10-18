@@ -50,7 +50,7 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-green-50 via-emerald-50 to-brand-earth-50 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-3 sm:p-4 bg-gradient-to-br from-green-50 via-emerald-50 to-brand-earth-50 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/30 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -61,29 +61,29 @@ export function LoginPage() {
       {/* Login Container */}
       <div className="relative w-full max-w-md animate-scale-in">
         {/* Logo & Title */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center mb-4">
-            <div className="p-4 bg-gradient-to-br from-green-400 to-green-600 rounded-3xl shadow-glow-green">
-              <Sprout className="w-12 h-12 text-white" />
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center justify-center mb-3 sm:mb-4">
+            <div className="p-3 sm:p-4 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl sm:rounded-3xl shadow-glow-green">
+              <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent mb-1 sm:mb-2">
             Welcome Back
           </h1>
-          <p className="text-gray-600">Sign in to manage your farmland</p>
+          <p className="text-sm sm:text-base text-gray-600">Sign in to manage your farmland</p>
         </div>
 
         {/* Login Card */}
-        <div className="glassmorphism rounded-3xl p-8 shadow-strong border-2 border-white/40">
-          <form onSubmit={handleLogin} className="space-y-5">
+        <div className="glassmorphism rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-strong border-2 border-white/40">
+          <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
             {/* Email Input */}
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Mail className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type="email"
@@ -93,19 +93,19 @@ export function LoginPage() {
                   onChange={handleInputChange}
                   required
                   placeholder="farmer@example.com"
-                  className="w-full pl-12 pr-4 py-3 bg-white/70 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
+                  className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/70 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
                 />
               </div>
             </div>
 
             {/* Password Input */}
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                 Password
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Lock className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -115,17 +115,17 @@ export function LoginPage() {
                   onChange={handleInputChange}
                   required
                   placeholder="Enter your password"
-                  className="w-full pl-12 pr-12 py-3 bg-white/70 border-2 border-gray-200 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
+                  className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-2.5 sm:py-3 text-sm sm:text-base bg-white/70 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all duration-200 text-gray-800 placeholder-gray-400"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors min-w-[44px] min-h-[44px]"
                 >
                   {showPassword ? (
-                    <EyeOff className="w-5 h-5" />
+                    <EyeOff className="w-4 h-4 sm:w-5 sm:h-5" />
                   ) : (
-                    <Eye className="w-5 h-5" />
+                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
                   )}
                 </button>
               </div>
@@ -141,13 +141,13 @@ export function LoginPage() {
                   onChange={handleInputChange}
                   className="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer"
                 />
-                <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
+                <span className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
                   Remember me
                 </span>
               </label>
               <button
                 type="button"
-                className="text-sm font-semibold text-green-600 hover:text-green-700 transition-colors"
+                className="text-xs sm:text-sm font-semibold text-green-600 hover:text-green-700 transition-colors min-h-[44px] flex items-center"
                 onClick={() => {
                   // TODO: Implement forgot password
                   console.log('Forgot password clicked');
@@ -162,17 +162,17 @@ export function LoginPage() {
               type="submit"
               variant="primary"
               disabled={isLoading}
-              className="w-full py-3.5 text-lg font-bold shadow-medium hover:shadow-strong group"
+              className="w-full py-3 sm:py-3.5 text-base sm:text-lg font-bold shadow-medium hover:shadow-strong group min-h-[48px]"
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-spin" />
                   Signing in...
                 </>
               ) : (
                 <>
                   Sign In
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
             </Button>
@@ -182,7 +182,7 @@ export function LoginPage() {
               type="button"
               variant="outline"
               onClick={handleDemoLogin}
-              className="w-full py-3 border-2"
+              className="w-full py-2.5 sm:py-3 border-2 text-sm sm:text-base min-h-[48px]"
             >
               🎭 Use Demo Credentials
             </Button>
@@ -203,7 +203,7 @@ export function LoginPage() {
             <button
               type="button"
               onClick={() => navigate('/register')}
-              className="w-full py-3 text-center font-semibold text-gray-700 hover:text-green-600 transition-colors"
+              className="w-full py-3 text-center font-semibold text-sm sm:text-base text-gray-700 hover:text-green-600 transition-colors min-h-[44px]"
             >
               Create New Account →
             </button>
@@ -211,7 +211,7 @@ export function LoginPage() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-6 text-sm text-gray-500">
+        <div className="text-center mt-4 sm:mt-6 text-xs sm:text-sm text-gray-500">
           <p>By signing in, you agree to our</p>
           <div className="flex items-center justify-center gap-2 mt-1">
             <button className="text-green-600 hover:text-green-700 font-medium">
