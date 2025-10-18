@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, X, Sparkles, Loader } from 'lucide-react';
+import { Send, Bot, Sparkles, Loader } from 'lucide-react';
 import Button from './Button';
 import Input from './Input';
 import MiniOrb from './MiniOrb';
+import GradualBlur from './GradualBlur';
 
 interface ChatMessage {
   id: string;
@@ -72,7 +73,6 @@ const ArivStyleChat: React.FC = () => {
   const [isPending, setIsPending] = useState(false);
   const [sessionId] = useState(() => `session_${Date.now()}`);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const N8N_WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL || 'https://n8n.pipfactor.com/webhook/apnaketh';
 
@@ -267,10 +267,16 @@ const ArivStyleChat: React.FC = () => {
     }
   };
 
-  // Floating button when closed (Animated Orb)
+  // Floating button when closed (Animated Orb - Bottom Center)
   if (!isOpen) {
     return (
-      <div className="fixed bottom-6 right-6 z-50">
+      <div 
+        className="fixed bottom-8 z-50 transition-all duration-700 ease-out"
+        style={{ 
+          left: '50%',
+          transform: 'translateX(-50%)'
+        }}
+      >
         <MiniOrb 
           onClick={() => setIsOpen(true)}
           hue={220}
@@ -282,143 +288,129 @@ const ArivStyleChat: React.FC = () => {
 
   return (
     <>
-      {/* Backdrop blur (EXACT SIH ERP Style) */}
-      <div
-        className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-        onClick={() => setIsOpen(false)}
-      />
-
-      {/* Chat Container (EXACT SIH ERP Style) */}
-      <div
-        ref={chatContainerRef}
-        className="fixed bottom-6 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-200/50 z-50"
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-              <Bot className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h3 className="text-base font-semibold">कृषि सहायक</h3>
-              <p className="text-xs text-blue-100 flex items-center gap-1">
-                <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                Online
-              </p>
-            </div>
+      {/* Gradual Blur Background - Animated from bottom */}
+      {isOpen && (
+        <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
+          {/* Green tint overlay */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-t from-green-500/8 via-green-500/3 to-transparent animate-in fade-in duration-500"
+          />
+          <div className="animate-in slide-in-from-bottom-4 fade-in duration-500">
+            <GradualBlur
+              position="bottom"
+              height="12rem"
+              strength={5}
+              divCount={6}
+              curve="bezier"
+              exponential={true}
+              opacity={0.95}
+              animated={true}
+              duration="0.5s"
+              easing="ease-out"
+            />
           </div>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center transition-colors"
-            aria-label="Close chat"
-          >
-            <X className="w-5 h-5" />
-          </button>
         </div>
+      )}
 
-        {/* Messages Container */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-gray-50 to-white">
-          {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+      {/* Minimal Horizontal Chat Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 pb-6">
+          <div className="flex items-center gap-4">
+            {/* Animated Orb - Slides smoothly to left when active */}
+            <div 
+              className="flex-shrink-0 transition-all duration-700 ease-out"
             >
-              {message.isTyping ? (
-                // Typing Indicator
-                <div className="bg-white rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm border border-gray-100">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Loader className="w-4 h-4 text-blue-600 animate-spin" />
-                    </div>
-                    <div className="flex space-x-1">
-                      <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                        style={{ animationDelay: '0ms' }}
-                      ></div>
-                      <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                        style={{ animationDelay: '150ms' }}
-                      ></div>
-                      <div
-                        className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                        style={{ animationDelay: '300ms' }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                // Regular Message
-                <div
-                  className={`max-w-[80%] rounded-2xl px-4 py-3 ${
-                    message.type === 'user'
-                      ? 'bg-blue-600 text-white rounded-br-sm'
-                      : 'bg-white text-gray-900 rounded-bl-sm shadow-sm border border-gray-100'
-                  }`}
-                >
-                  <div className="flex items-start space-x-2">
-                    {message.type === 'ai' && (
-                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Bot className="w-4 h-4 text-blue-600" />
-                      </div>
-                    )}
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">
-                        {message.content}
-                      </p>
-                      <p
-                        className={`text-xs mt-1.5 ${
-                          message.type === 'user' ? 'text-blue-100' : 'text-gray-400'
-                        }`}
-                      >
-                        {message.timestamp.toLocaleTimeString('en-IN', {
-                          hour: '2-digit',
-                          minute: '2-digit',
-                        })}
-                      </p>
-                    </div>
-                    {message.type === 'user' && (
-                      <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <User className="w-4 h-4 text-white" />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Input Area */}
-        <div className="p-4 bg-white border-t border-gray-200">
-          <div className="flex items-end space-x-2">
-            <div className="flex-1">
-              <Input
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="अपना सवाल यहाँ लिखें... (Type in Hindi/English)"
-                disabled={isPending}
-                className="w-full"
+              <MiniOrb 
+                onClick={() => setIsOpen(false)}
+                hue={220}
+                size={64}
               />
             </div>
-            <Button
-              onClick={handleSendMessage}
-              disabled={!inputMessage.trim() || isPending}
-              variant="primary"
-              size="md"
-              className="h-10"
+
+            {/* Chat Input Bar - Slides and fades in */}
+            <div 
+              className={`flex-1 transition-all duration-700 ease-out ${
+                isOpen 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 -translate-x-8 pointer-events-none'
+              }`}
             >
-              {isPending ? (
-                <Loader className="w-4 h-4 animate-spin" />
-              ) : (
-                <Send className="w-4 h-4" />
-              )}
-            </Button>
-          </div>
-          <div className="mt-2 flex items-center justify-center space-x-1 text-gray-500">
-            <Sparkles className="w-3 h-3 text-blue-600" />
-            <span className="text-xs">Powered by AI for Smart Agriculture</span>
+              <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 p-4">
+                <div className="flex items-center gap-3">
+                  {/* AI Icon - Pop in animation */}
+                  <div 
+                    className={`w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500 ${
+                      isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                    }`}
+                    style={{ transitionDelay: isOpen ? '200ms' : '0ms' }}
+                  >
+                    <Bot className="w-5 h-5 text-white" />
+                  </div>
+
+                  {/* Last AI Response - Fade and slide up */}
+                  <div 
+                    className={`flex-1 max-h-16 overflow-y-auto transition-all duration-500 ${
+                      isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                    }`}
+                    style={{ transitionDelay: isOpen ? '300ms' : '0ms' }}
+                  >
+                    {messages.length > 0 && messages[messages.length - 1].type === 'ai' && !isPending ? (
+                      <p className="text-sm text-gray-700 leading-relaxed">
+                        {messages[messages.length - 1].content}
+                      </p>
+                    ) : isPending ? (
+                      <div className="flex items-center gap-2">
+                        <Loader className="w-4 h-4 text-blue-600 animate-spin" />
+                        <span className="text-sm text-gray-500">Thinking...</span>
+                      </div>
+                    ) : (
+                      <p className="text-sm text-gray-500">Ask me anything about your farm...</p>
+                    )}
+                  </div>
+
+                  {/* Input Field - Fade and slide up */}
+                  <div 
+                    className={`flex items-center gap-2 flex-shrink-0 transition-all duration-500 ${
+                      isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                    }`}
+                    style={{ transitionDelay: isOpen ? '400ms' : '0ms' }}
+                  >
+                    <Input
+                      value={inputMessage}
+                      onChange={(e) => setInputMessage(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      placeholder="Type your question..."
+                      disabled={isPending}
+                      className="w-64"
+                    />
+                    <Button
+                      onClick={handleSendMessage}
+                      disabled={!inputMessage.trim() || isPending}
+                      variant="primary"
+                      size="md"
+                      className="h-10"
+                    >
+                      {isPending ? (
+                        <Loader className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Send className="w-4 h-4" />
+                      )}
+                    </Button>
+                  </div>
+
+                  {/* Powered by AI badge - Scale and fade in */}
+                  <div 
+                    className={`flex items-center gap-1 text-gray-400 flex-shrink-0 transition-all duration-500 ${
+                      isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                    }`}
+                    style={{ transitionDelay: isOpen ? '500ms' : '0ms' }}
+                  >
+                    <Sparkles className="w-3 h-3" />
+                    <span className="text-xs">AI</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
