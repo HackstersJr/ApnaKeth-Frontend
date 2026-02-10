@@ -2,12 +2,6 @@
 
 AI-powered crop stress detection and intervention system using satellite data, weather forecasts, and soil analysis.
 
-## ✅ Current Status
-
-**AI Components:** ✅ Fully copied and adapted from SIH ERP  
-**Ready to Run:** ✅ Yes, with mock data  
-**Real APIs:** ⚠️ Need configuration (N8N webhook, API keys)
-
 ## 🚀 Features
 
 - **🛰️ Crop Health Analysis**: NDVI/MLVI-based stress detection from Sentinel-2 satellite data
